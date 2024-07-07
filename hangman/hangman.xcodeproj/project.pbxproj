@@ -15,7 +15,6 @@
 		CE14749C2C3965C800833329 /* words.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14749B2C3965C800833329 /* words.swift */; };
 		CE14749E2C3965EB00833329 /* InputCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14749D2C3965EB00833329 /* InputCharacter.swift */; };
 		CE1474A02C39661100833329 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14749F2C39661100833329 /* Game.swift */; };
-		CE20BA8A2C39CA5F00B63101 /* ChooseLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20BA892C39CA5F00B63101 /* ChooseLetterView.swift */; };
 		CE20BA8C2C39CA7600B63101 /* NewWordGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20BA8B2C39CA7600B63101 /* NewWordGameView.swift */; };
 		CE20BA8E2C39CABB00B63101 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20BA8D2C39CABB00B63101 /* Main.swift */; };
 		CE58F39B2C39EE5F00DB02B5 /* GuessLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58F39A2C39EE5F00DB02B5 /* GuessLetterView.swift */; };
@@ -31,7 +30,6 @@
 		CE14749B2C3965C800833329 /* words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = words.swift; sourceTree = "<group>"; };
 		CE14749D2C3965EB00833329 /* InputCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCharacter.swift; sourceTree = "<group>"; };
 		CE14749F2C39661100833329 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		CE20BA892C39CA5F00B63101 /* ChooseLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLetterView.swift; sourceTree = "<group>"; };
 		CE20BA8B2C39CA7600B63101 /* NewWordGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordGameView.swift; sourceTree = "<group>"; };
 		CE20BA8D2C39CABB00B63101 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		CE58F39A2C39EE5F00DB02B5 /* GuessLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessLetterView.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				CE1474A12C39663200833329 /* testView */,
-				CE20BA892C39CA5F00B63101 /* ChooseLetterView.swift */,
 				CE58F39A2C39EE5F00DB02B5 /* GuessLetterView.swift */,
 				CE20BA8B2C39CA7600B63101 /* NewWordGameView.swift */,
 				CE20BA8D2C39CABB00B63101 /* Main.swift */,
@@ -200,7 +197,6 @@
 				CE1474A02C39661100833329 /* Game.swift in Sources */,
 				CE14749E2C3965EB00833329 /* InputCharacter.swift in Sources */,
 				CE14749C2C3965C800833329 /* words.swift in Sources */,
-				CE20BA8A2C39CA5F00B63101 /* ChooseLetterView.swift in Sources */,
 				CE14749A2C3965A200833329 /* HangmanWord.swift in Sources */,
 				CE1474872C3961FC00833329 /* hangmanApp.swift in Sources */,
 			);

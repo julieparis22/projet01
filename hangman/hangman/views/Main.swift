@@ -12,18 +12,21 @@ struct Main: View {
     @State var character = InputCharacter()
     @State var enteredLetter: String = ""
     @State private var showingAlert = false
+    
+    let sizeGuessArray = Game().guessArray.count
+
+
 
     var body: some View {
         VStack {
-      //      ChooseLetterView(game: $game, character: $character, enteredLetter: $enteredLetter)
-          
-            GuessLetterView(game: $game, character: $character)
-            
-            NewWordGameView(game: $game)
-            
+
+          GuessLetterView(game: $game)
        
-        }
-        .padding()
+            NewWordGameView(game: $game)
+                
+            }
+        
+        
     }
 }
 
@@ -31,15 +34,3 @@ struct Main: View {
     Main()
 }
 
-/*     Button(action: {
- showingAlert = true
-}) {
- Text("Vérifier les valeurs de matchingLetters")
-}
-.alert(isPresented: $showingAlert) {
- Alert(
-     title: Text("Valeurs de matchingLetters"),
-     message: Text(game.matchingLetters.joined(separator: ", ")),
-     dismissButton: .default(Text("OK"))
- )
-}**/

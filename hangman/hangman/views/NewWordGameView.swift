@@ -22,7 +22,7 @@ struct NewWordGameView: View {
         
         // FIN HSTACK test
         
-        Button("Nouveau mot") {
+        Button("Nouvelle partie") {
             game.refresh()
         }
     }
@@ -35,5 +35,3 @@ struct NewWordGameView: View {
 
 
 
-//@State private var character = InputCharacter()
-//@State private var enteredLetter : String = ""

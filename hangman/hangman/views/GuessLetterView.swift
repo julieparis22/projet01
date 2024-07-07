@@ -11,39 +11,44 @@ import SwiftUI
 
 struct GuessLetterView: View {
     @Binding var game: Game
-    @Binding var character: InputCharacter
 
-    @State private var indices: [Int] = []
+
+    @State var indices: [Int] = []
+
 
     var body: some View {
         VStack {
-            
-            
-            
-            TextField("Entrez une lettre", text: $character.letter)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
+            TextField("Entrez une lettre", text: $game.inputCharacter.letter)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+                .frame(width: 60)
+                .font(.system(size: 20))
                 
-        
+            Text("Etes vous sur de votre choix ?")
             
-            
-            Button("Tester la lettre") {
-                
-                if !character.letter.isEmpty {
-                    game.letter = character.letter
-                    character.letter = ""
-                    character = InputCharacter(inputLetter: "")
+            Button("Oui") {
+                if !game.inputCharacter.letter.isEmpty {
+                    game.letter = game.inputCharacter.letter
+                    game.inputCharacter.resetLetter()
                 }
-                // Utiliser game.letter plutôt que character.letter
+                           
                 indices = game.testLetter(word: game.word, letter: game.letter)
-                
+                           
                 for index in indices {
                     game.matchingLetters[index] = game.word[index]
                 }
+                           
+                game.updateGuessArray(with: indices)
+                let result = game.testArray()
+                game.updateGuess(testArray: result)
+                
+           
+                           
+                 
             }
+            .padding()
             
-
-         
+            Text("il vous reste : \(game.life - game.guess) vies")
             
             // Affichage des lettres correspondantes
             HStack {
@@ -56,12 +61,7 @@ struct GuessLetterView: View {
 }
 
 #Preview {
-    GuessLetterView(game: .constant(Game()), character: .constant(InputCharacter()))
+    //
+    GuessLetterView(game: .constant(Game()))
 }
 
-/**   VStack {
- Text("Indices trouvés:")
- ForEach(indices, id: \.self) { index in
-     Text("Indice: \(index) - Lettre: \(game.word[index])")
- }
-}*/

@@ -7,10 +7,7 @@
 
 import Foundation
 struct InputCharacter {
-    
-    
-
-        var inputLetter: String = ""
+    var inputLetter: String = ""
         
         var letter: String {
             get {
@@ -23,6 +20,12 @@ struct InputCharacter {
         }
         
 
+    mutating func resetLetter() {
+          self.inputLetter = ""
+         self.letter = ""
+      }
+    
+    
     
     mutating func changeLetter(newLetter : String) -> String {
      
