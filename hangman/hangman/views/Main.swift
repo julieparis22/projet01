@@ -39,7 +39,7 @@ struct Main: View {
                      return Alert(
                          title: Text("Jeu Terminé"),
                          message: Text("Vous avez perdu. Voulez-vous recommencer ?"),
-                         primaryButton: .default(Text("Oui")) {
+                         primaryButton: .default(Text("Oui bien sur")) {
                              game.refresh()
                          },
                          secondaryButton: .cancel(Text("Non"))
