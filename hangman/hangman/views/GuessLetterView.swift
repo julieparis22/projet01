@@ -11,12 +11,15 @@ import SwiftUI
 
 struct GuessLetterView: View {
     @Binding var game: Game
+    var limite : Int = 20
 
 
+    @Binding var showAlert : Bool
     @State var indices: [Int] = []
 
 
     var body: some View {
+        Text("Entrez votre texte")
         VStack {
             TextField("Entrez une lettre", text: $game.inputCharacter.letter)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -42,6 +45,11 @@ struct GuessLetterView: View {
                 let result = game.testArray()
                 game.updateGuess(testArray: result)
                 
+                if game.guess >= game.life {
+                                  game.refresh()
+                                  showAlert = true
+                              }
+                
            
                            
                  
@@ -56,12 +64,14 @@ struct GuessLetterView: View {
                     Text("\(game.matchingLetters[index].isEmpty ? "" : game.matchingLetters[index])")
                 }
             }
+            
+            
         }
     }
 }
 
 #Preview {
     //
-    GuessLetterView(game: .constant(Game()))
+    GuessLetterView(game: .constant(Game()), showAlert: .constant(false))
 }
 

@@ -13,12 +13,7 @@ struct NewWordGameView: View {
         
         // supprimer ce HSTACK a terme
         
-        HStack {
-            ForEach(game.word, id: \.self) { letter in
-                     Text(letter)
-                    .padding().multilineTextAlignment(.leading)
-            }
-        }
+        
         
         // FIN HSTACK test
         
@@ -35,3 +30,9 @@ struct NewWordGameView: View {
 
 
 
+/*HStack {
+ ForEach(game.word, id: \.self) { letter in
+          Text(letter)
+         .padding().multilineTextAlignment(.leading)
+ }
+}*/

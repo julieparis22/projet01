@@ -11,7 +11,7 @@ struct Main: View {
     @State var game = Game()
     @State var character = InputCharacter()
     @State var enteredLetter: String = ""
-    @State private var showingAlert = false
+    @State var showAlert = false
     
     let sizeGuessArray = Game().guessArray.count
 
@@ -20,10 +20,20 @@ struct Main: View {
     var body: some View {
         VStack {
 
-          GuessLetterView(game: $game)
+            
+          GuessLetterView(game: $game, showAlert: $showAlert)
        
             NewWordGameView(game: $game)
                 
+            }   .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Jeu Terminé"),
+                    message: Text(" Voulez-vous recommencer ?"),
+                    primaryButton: .default(Text("Oui")) {
+                        game.refresh()
+                    },
+                    secondaryButton: .cancel() // Pas de bouton "Non"
+                )
             }
         
         
