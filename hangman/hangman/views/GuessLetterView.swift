@@ -17,19 +17,27 @@ import SwiftUI
         var body: some View {
             VStack {
                 Button("Tester la lettre") {
-                            indices = game.testLetter(word: game.word, letter: character.letter)
+                    indices = game.testLetter(word: game.word, letter: character.letter)
                     
                     for index in indices {
-                                       game.matchingLetters[index] = game.word[index]
-                                   }
-           
-                    
-                    
-                        }
-                        
+                        game.matchingLetters[index] = game.word[index]
+                    }
+                }
                 
+                // Affichage des indices
+                VStack {
+                    Text("Indices trouvés:")
+                    ForEach(indices, id: \.self) { index in
+                        Text("Indice: \(index) - Lettre: \(game.word[index])")
+                    }
+                }
                 
-                
+                // Affichage des lettres correspondantes
+                HStack {
+                    ForEach(game.matchingLetters.indices, id: \.self) { index in
+                        Text("Matching Letter Index test \(index): \(game.matchingLetters[index])")
+                    }
+                }
             }
         }
     }

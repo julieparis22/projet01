@@ -25,7 +25,7 @@ struct ChooseLetterView: View {
                   if !character.letter.isEmpty {
                       game.letter = character.letter
                       character.letter = ""
-                      print("TextField réinitialisé à: \(character.letter)") 
+                      character = InputCharacter(inputLetter: "")
                   }
               }
               .padding()

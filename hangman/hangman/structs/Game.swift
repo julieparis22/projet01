@@ -19,7 +19,9 @@ struct Game : Identifiable{
     var hangmanWord = HangmanWord()
     var word :  [String] = HangmanWord().wordInArray
     var testedLetters : [String] = ["","","","","",]
-    var matchingLetters : [String] = ["","","","","",]
+    var matchingLetters: [String] = Array(repeating: "", count: HangmanWord().wordInArray.count)
+  
+    //   var matchingLetters : [String] = ["","","","","",]
   
  //   var enteredLetter: String = ""
     var letter = InputCharacter().letter
@@ -42,30 +44,9 @@ struct Game : Identifiable{
         return word.indices.filter { word[$0] == letter }
        
        }
-    //   //   var indices = word.indices.filter { word[$0] == letter}
-    
-    /*    enteredLetter = character.letter  var enteredLetter: String = ""**/
-    
+  
     
     
 }
 
 
-/*  func testLetter(word : [String], letter : String )->[Int] {
- //   let indices = word.indices.filter { word[$0] == letter }
-    return Array(word.indices.filter { word[$0] == letter })
- 
- 
-
- 
- 
- 
- let indices = word.indices.filter { word[$0] == letter }
- if !indices.isEmpty {
-     for index in indices {
-         testedLetters[index] = letter
-     }
- }
- return indices
-
-}**/

@@ -11,12 +11,16 @@ struct NewWordGameView: View {
     @Binding var game: Game
     var body: some View {
         
+        // supprimer ce HSTACK a terme
+        
         HStack {
             ForEach(game.word, id: \.self) { letter in
                      Text(letter)
                     .padding().multilineTextAlignment(.leading)
             }
         }
+        
+        // FIN HSTACK test
         
         Button("Nouveau mot") {
             game.refresh()

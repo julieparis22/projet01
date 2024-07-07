@@ -24,11 +24,11 @@ struct Main: View {
             Button(action: {
                 showingAlert = true
             }) {
-                Text("Vérifier les valeurs de testedLetters")
+                Text("Vérifier les valeurs de matchingLetters")
             }
             .alert(isPresented: $showingAlert) {
                 Alert(
-                    title: Text("Valeurs de testedLetters"),
+                    title: Text("Valeurs de matchingLetters"),
                     message: Text(game.matchingLetters.joined(separator: ", ")),
                     dismissButton: .default(Text("OK"))
                 )
