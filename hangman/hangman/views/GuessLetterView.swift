@@ -5,27 +5,77 @@
 //  Created by julie ryan on 06/07/2024.
 //
 
+
+
 import SwiftUI
 
 struct GuessLetterView: View {
     @Binding var game: Game
-    @Binding  var character : InputCharacter
+    var limite : Int = 20
+
+
+    @Binding var showAlert : Bool
+    @State var indices: [Int] = []
+    @Binding var win : Bool
+
+
     var body: some View {
-        HStack {
-            ForEach( game.testLetter(word: game.word , letter: character.letter), id: \.self) { number in
-                Text(" test boucle \(game.word[number])") .onTapGesture {
-                    // Mise à jour de testedLetters avec character.letter à l'indice number
-                    game.testedLetters[number] = character.letter
+        Text("Entrer votre lettre ")
+        VStack {
+            TextField("_", text: $game.inputCharacter.letter)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+                .frame(width: 60)
+                .font(.system(size: 20))
+                
+            Text("Etes vous sur de votre choix ?")
+            
+            Button("Oui") {
+                if !game.inputCharacter.letter.isEmpty {
+                    game.letter = game.inputCharacter.letter
+                    game.inputCharacter.resetLetter()
                 }
-            //    game.testedLetters.append(number)
+                           
+                indices = game.testLetter(word: game.word, letter: game.letter)
+                           
+                for index in indices {
+                    game.matchingLetters[index] = game.word[index]
+                }
+                           
+                game.updateGuessArray(with: indices)
+                let result = game.testArray()
+                game.updateGuess(testArray: result)
                 
-              //  Text(" test boucle \(game.word[number])")
+                win = !game.matchingLetters.contains("_")
                 
+                if game.guess >= game.life {
+                    game.refresh()
+                    showAlert = true 
+                }
+                
+           
+                           
+                 
             }
+            .padding()
+            
+           
+
+            HStack {
+                ForEach(game.matchingLetters.indices, id: \.self) { index in
+                    Text("\(game.matchingLetters[index].isEmpty ? "" : game.matchingLetters[index])")
+                }
+            }
+            
+            Text("il vous reste : \(game.life - game.guess) vies")
+            
+            
         }
     }
 }
 
 #Preview {
-    GuessLetterView(game: .constant(Game()), character: .constant(InputCharacter()))
+    //
+    GuessLetterView(game: .constant(Game()), showAlert: .constant(false), win: .constant(false))
 }
+

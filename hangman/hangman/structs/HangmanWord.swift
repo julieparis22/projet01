@@ -28,9 +28,7 @@ struct HangmanWord {
         res = word.map { String($0) }
         
         return res
-      
-        
-    }
+      }
     
     
     

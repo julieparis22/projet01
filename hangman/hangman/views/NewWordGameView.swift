@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct NewWordGameView: View {
+    @Binding var game: Game
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        // supprimer ce HSTACK a terme
+        
+        
+        
+        // FIN HSTACK test
+        
+        Button("Nouvelle partie") {
+            game.refresh()
+        }
     }
 }
 
 #Preview {
-    NewWordGameView()
+    NewWordGameView(game: .constant(Game()))
 }
+
+
+
+
+/*HStack {
+ ForEach(game.word, id: \.self) { letter in
+          Text(letter)
+         .padding().multilineTextAlignment(.leading)
+ }
+}*/

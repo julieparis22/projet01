@@ -7,13 +7,11 @@
 
 import Foundation
 struct InputCharacter {
-    
-    
-
-        var inputLetter: String = ""
+    var inputLetter: String = ""
         
         var letter: String {
             get {
+                
                 return inputLetter
             }
             set {
@@ -21,10 +19,13 @@ struct InputCharacter {
             }
         }
         
-        var date: Date = Date()
-        var recipient: String = " "
-        var sender: String = " "
 
+    mutating func resetLetter() {
+          self.inputLetter = ""
+         self.letter = ""
+      }
+    
+    
     
     mutating func changeLetter(newLetter : String) -> String {
      

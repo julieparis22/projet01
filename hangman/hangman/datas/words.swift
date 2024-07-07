@@ -6,7 +6,7 @@
 //
 
 import Foundation
-let words :  [String] = [
+let minusculeWords :  [String] = [
  
     "Table",
     "Chien",
@@ -23,7 +23,19 @@ let words :  [String] = [
     "Balai",
     "Piano",
     "Jouer",
-    "Plume",
-    "Etoile",
-    "Cascade"
+    "Plume"
+
+   
 ]
+
+let words =  minusculeWords.map { $0.uppercased() }
+
+
+
+let testArray = ["a", "b", "c", "b"]
+/*
+ 
+
+ 
+ 
+ **/
