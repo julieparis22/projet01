@@ -14,6 +14,7 @@ struct InputCharacter {
         
         var letter: String {
             get {
+                
                 return inputLetter
             }
             set {
@@ -21,9 +22,6 @@ struct InputCharacter {
             }
         }
         
-        var date: Date = Date()
-        var recipient: String = " "
-        var sender: String = " "
 
     
     mutating func changeLetter(newLetter : String) -> String {

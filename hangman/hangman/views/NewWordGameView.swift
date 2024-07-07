@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct NewWordGameView: View {
+    @Binding var game: Game
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        HStack {
+            ForEach(game.word, id: \.self) { letter in
+                     Text(letter)
+                    .padding().multilineTextAlignment(.leading)
+            }
+        }
+        
+        Button("Nouveau mot") {
+            game.refresh()
+        }
     }
 }
 
 #Preview {
-    NewWordGameView()
+    NewWordGameView(game: .constant(Game()))
 }
+
+
+
+
+//@State private var character = InputCharacter()
+//@State private var enteredLetter : String = ""

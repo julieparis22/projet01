@@ -7,25 +7,58 @@
 
 import SwiftUI
 
-struct GuessLetterView: View {
-    @Binding var game: Game
-    @Binding  var character : InputCharacter
-    var body: some View {
-        HStack {
-            ForEach( game.testLetter(word: game.word , letter: character.letter), id: \.self) { number in
-                Text(" test boucle \(game.word[number])") .onTapGesture {
-                    // Mise à jour de testedLetters avec character.letter à l'indice number
-                    game.testedLetters[number] = character.letter
-                }
-            //    game.testedLetters.append(number)
+
+    struct GuessLetterView: View {
+        @Binding var game: Game
+        @Binding var character: InputCharacter
+
+        @State var indices: [Int] = []
+
+        var body: some View {
+            VStack {
+                Button("Tester la lettre") {
+                            indices = game.testLetter(word: game.word, letter: character.letter)
+                    
+                    for index in indices {
+                                       game.matchingLetters[index] = game.word[index]
+                                   }
+           
+                    
+                    
+                        }
+                        
                 
-              //  Text(" test boucle \(game.word[number])")
+                
                 
             }
         }
     }
-}
 
-#Preview {
-    GuessLetterView(game: .constant(Game()), character: .constant(InputCharacter()))
+    #Preview {
+        GuessLetterView(game: .constant(Game()), character: .constant(InputCharacter()))
+    }
+/*        // Affichage des indices
+ VStack {
+     Text("Indices trouvés:")
+     ForEach(indices, id: \.self) { index in
+         Text("\(index)")
+     }
+ }
+
+HStack {
+ForEach(indices, id: \.self) { number in
+ Button(action: {
+     game.testedLetters[number] = game.word[number]
+ }) {
+     Label {
+         VStack {
+             Text("Lettre commune: \(game.word[number])")
+             Text("Indice: \(number)")
+         }
+     } icon: {
+         Image(systemName: "character")
+     }
+ }
+ .buttonStyle(DefaultButtonStyle())
 }
+}**/
