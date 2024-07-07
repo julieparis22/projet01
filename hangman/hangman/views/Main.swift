@@ -16,23 +16,12 @@ struct Main: View {
     var body: some View {
         VStack {
             ChooseLetterView(game: $game, character: $character, enteredLetter: $enteredLetter)
-            NewWordGameView(game: $game)
+          
             GuessLetterView(game: $game, character: $character)
             
-       
+            NewWordGameView(game: $game)
             
-            Button(action: {
-                showingAlert = true
-            }) {
-                Text("Vérifier les valeurs de matchingLetters")
-            }
-            .alert(isPresented: $showingAlert) {
-                Alert(
-                    title: Text("Valeurs de matchingLetters"),
-                    message: Text(game.matchingLetters.joined(separator: ", ")),
-                    dismissButton: .default(Text("OK"))
-                )
-            }
+       
         }
         .padding()
     }
@@ -42,15 +31,15 @@ struct Main: View {
     Main()
 }
 
-/* HStack {
- ForEach(game.testedLetters, id: \.self) { index in
-           //    Text("Tested Letter at index \(index)")
-     Text("test \(index)")
- HStack {
-     ForEach(game.testedLetters, id: \.self) { letter in
-         Text("test \(letter)")
-     }
- }
- 
- 
- }**/
+/*     Button(action: {
+ showingAlert = true
+}) {
+ Text("Vérifier les valeurs de matchingLetters")
+}
+.alert(isPresented: $showingAlert) {
+ Alert(
+     title: Text("Valeurs de matchingLetters"),
+     message: Text(game.matchingLetters.joined(separator: ", ")),
+     dismissButton: .default(Text("OK"))
+ )
+}**/

@@ -29,6 +29,7 @@ struct Game : Identifiable{
     mutating func refresh(){
         self.word = hangmanWord.refreshWord()
         self.testedLetters =  ["","","","","",]
+        self.matchingLetters = Array(repeating: "", count: word.count)
         self.guess = 0
         self.inputCharacter = InputCharacter()
         }

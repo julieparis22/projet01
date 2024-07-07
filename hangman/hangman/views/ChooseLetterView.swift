@@ -18,9 +18,6 @@ struct ChooseLetterView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
             
-        
-    
-        
         Button("Envoyer") {
                   if !character.letter.isEmpty {
                       game.letter = character.letter
@@ -40,25 +37,3 @@ struct ChooseLetterView: View {
     ChooseLetterView(game: .constant(Game()), character: .constant(InputCharacter()), enteredLetter: .constant(""))
 }
 
-/**        .onChange(of: character.letter) { newValue in
- if newValue.count > 1 {
-     self.character.letter = String(newValue.prefix(1))
- }
-}*/
-
-
-
-
-      
-/*
- 
- TextField("Entrez une lettre", text: $character.letter)
-              .padding()
-              .onChange(of: character.letter) { newValue in
-                            // Vérifier si le nouveau texte a plus d'une lettre et le réduire à une seule lettre si nécessaire
-                            if newValue.count > 1 {
-                                character.letter = String(newValue.prefix(1))
-                            }
-                        }
- 
- **/
