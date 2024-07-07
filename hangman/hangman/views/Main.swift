@@ -15,7 +15,7 @@ struct Main: View {
 
     var body: some View {
         VStack {
-            ChooseLetterView(game: $game, character: $character, enteredLetter: $enteredLetter)
+      //      ChooseLetterView(game: $game, character: $character, enteredLetter: $enteredLetter)
           
             GuessLetterView(game: $game, character: $character)
             

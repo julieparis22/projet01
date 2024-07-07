@@ -17,7 +17,23 @@ struct GuessLetterView: View {
 
     var body: some View {
         VStack {
+            
+            
+            
+            TextField("Entrez une lettre", text: $character.letter)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                
+        
+            
+            
             Button("Tester la lettre") {
+                
+                if !character.letter.isEmpty {
+                    game.letter = character.letter
+                    character.letter = ""
+                    character = InputCharacter(inputLetter: "")
+                }
                 // Utiliser game.letter plutôt que character.letter
                 indices = game.testLetter(word: game.word, letter: game.letter)
                 
@@ -26,13 +42,8 @@ struct GuessLetterView: View {
                 }
             }
             
-            // Affichage des indices
-            VStack {
-                Text("Indices trouvés:")
-                ForEach(indices, id: \.self) { index in
-                    Text("Indice: \(index) - Lettre: \(game.word[index])")
-                }
-            }
+
+         
             
             // Affichage des lettres correspondantes
             HStack {
@@ -48,3 +59,9 @@ struct GuessLetterView: View {
     GuessLetterView(game: .constant(Game()), character: .constant(InputCharacter()))
 }
 
+/**   VStack {
+ Text("Indices trouvés:")
+ ForEach(indices, id: \.self) { index in
+     Text("Indice: \(index) - Lettre: \(game.word[index])")
+ }
+}*/

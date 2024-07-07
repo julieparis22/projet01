@@ -14,21 +14,10 @@ struct ChooseLetterView: View {
 
     var body: some View {
         
-        TextField("Entrez une lettre", text: $character.letter)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-            
-        Button("Envoyer") {
-                  if !character.letter.isEmpty {
-                      game.letter = character.letter
-                      character.letter = ""
-                      character = InputCharacter(inputLetter: "")
-                  }
-              }
-              .padding()
+      Text(" ")
       
              
-         Text("Lettre entrée : \(game.letter)")
+       //  Text("Lettre entrée : \(game.letter)")
         }
     }
 
@@ -37,3 +26,17 @@ struct ChooseLetterView: View {
     ChooseLetterView(game: .constant(Game()), character: .constant(InputCharacter()), enteredLetter: .constant(""))
 }
 
+/*
+ TextField("Entrez une lettre", text: $character.letter)
+             .textFieldStyle(RoundedBorderTextFieldStyle())
+             .padding()
+     
+ Button("Envoyer") {
+           if !character.letter.isEmpty {
+               game.letter = character.letter
+               character.letter = ""
+               character = InputCharacter(inputLetter: "")
+           }
+       }
+       .padding()
+ **/
