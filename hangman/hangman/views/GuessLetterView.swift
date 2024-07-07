@@ -16,12 +16,13 @@ struct GuessLetterView: View {
 
     @Binding var showAlert : Bool
     @State var indices: [Int] = []
+    @Binding var win : Bool
 
 
     var body: some View {
-        Text("Entrez votre texte")
+        Text("Entrer votre lettre ")
         VStack {
-            TextField("Entrez une lettre", text: $game.inputCharacter.letter)
+            TextField("_", text: $game.inputCharacter.letter)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .frame(width: 60)
@@ -45,10 +46,12 @@ struct GuessLetterView: View {
                 let result = game.testArray()
                 game.updateGuess(testArray: result)
                 
+                win = !game.matchingLetters.contains("_")
+                
                 if game.guess >= game.life {
-                                  game.refresh()
-                                  showAlert = true
-                              }
+                    game.refresh()
+                    showAlert = true 
+                }
                 
            
                            
@@ -56,14 +59,15 @@ struct GuessLetterView: View {
             }
             .padding()
             
-            Text("il vous reste : \(game.life - game.guess) vies")
-            
-            // Affichage des lettres correspondantes
+           
+
             HStack {
                 ForEach(game.matchingLetters.indices, id: \.self) { index in
                     Text("\(game.matchingLetters[index].isEmpty ? "" : game.matchingLetters[index])")
                 }
             }
+            
+            Text("il vous reste : \(game.life - game.guess) vies")
             
             
         }
@@ -72,6 +76,6 @@ struct GuessLetterView: View {
 
 #Preview {
     //
-    GuessLetterView(game: .constant(Game()), showAlert: .constant(false))
+    GuessLetterView(game: .constant(Game()), showAlert: .constant(false), win: .constant(false))
 }
 

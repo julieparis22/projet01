@@ -22,7 +22,7 @@ struct Game : Identifiable{
     
     var guess : Int = 0
     var guessArray: [Bool] = Array(repeating: true, count: HangmanWord().wordInArray.count) // true
-    let life : Int = 20
+    let life : Int = 10
 
 
     var letter = InputCharacter().letter
