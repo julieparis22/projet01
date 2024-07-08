@@ -19,24 +19,43 @@ struct GuessLetterView: View {
     @Binding var win : Bool
     @Binding var showImageLoose : Bool
     @Binding var showImageWin : Bool
+    let sizeImage : CGFloat = UIScreen.main.bounds.height / 8
+    
+    @State var enteredLetter: String = ""
 
 
     var body: some View {
         Text("Entrer votre lettre ")
         VStack {
-            TextField("_", text: $game.inputCharacter.letter)
+            //TextField("_", text: $game.inputCharacter.letter)
+            
+            TextField("_", text: $enteredLetter)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .frame(width: 60)
                 .font(.system(size: 20))
+                .onChange(of: enteredLetter) { oldValue, newValue in
+                    if newValue.count > 1 {
+                        enteredLetter = String(newValue.prefix(1)).uppercased()
+                    } else {
+                        enteredLetter = newValue.uppercased()
+                    }
+                }
+                     
                 
             Text("Etes vous sur de votre choix ?")
             
             Button("Oui") {
-                if !game.inputCharacter.letter.isEmpty {
-                    game.letter = game.inputCharacter.letter
-                    game.inputCharacter.resetLetter()
-                }
+                
+                if enteredLetter.isEmpty {
+                                  return // Ne rien faire si aucune lettre n'est saisie
+                              }
+                
+                game.letter = enteredLetter
+                game.inputCharacter.resetLetter()
+                
+            
+                
                            
                 indices = game.testLetter(word: game.word, letter: game.letter)
                            
@@ -58,7 +77,7 @@ struct GuessLetterView: View {
            
                            
                  
-            }
+            }.foregroundStyle(.colorButton).font(.largeTitle)
             .padding()
             
            
@@ -72,9 +91,12 @@ struct GuessLetterView: View {
             Text("il vous reste : \(game.life - game.guess) vies").multilineTextAlignment(.center)
           
             if showImageLoose {
-                Image("man0").resizable().scaledToFit().padding()
-            } else {
-                Image("man\(game.life - game.guess)").resizable().scaledToFit().padding()
+                Image("man0").resizable().scaledToFit().padding().frame(height: sizeImage)
+            } else if (showImageWin == true && showImageLoose == false) {
+                Image("coupe").resizable().scaledToFit().padding().frame(height: sizeImage)
+            }
+            else {
+                Image("man\(game.life - game.guess)").resizable().scaledToFit().padding().frame(height: sizeImage)
             }
             
             
@@ -90,3 +112,19 @@ struct GuessLetterView: View {
 
 
 /* lien image <a href="https://www.flaticon.com/fr/icones-gratuites/jeu-du-pendu" title="jeu du pendu icônes">Jeu du pendu icônes créées par Icongeek26 - Flaticon</a>**/
+
+/*      TextField("_", text: Binding(
+ get: {
+     game.inputCharacter.letter.prefix(1).uppercased()
+ },
+ set: { newValue in
+     game.inputCharacter.letter = String(newValue.prefix(1)).uppercased()
+ }
+)) {
+ game.inputCharacter.letter
+}
+.textFieldStyle(RoundedBorderTextFieldStyle())
+.padding()
+.frame(width: 60)
+.font(.system(size: 20))
+ **/

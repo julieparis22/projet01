@@ -10,7 +10,7 @@ import SwiftUI
 struct NewSpacerView: View {
     var body: some View {
         Text(" ").font(.largeTitle)
-        Spacer()
+ 
         Text(" ").font(.largeTitle)
     }
 }

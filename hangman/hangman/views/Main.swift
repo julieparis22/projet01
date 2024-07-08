@@ -28,7 +28,7 @@ struct Main: View {
                 HStack {
                     VStack {
                         GuessLetterView(game: $game, showAlert: $showAlert, win: $win, showImageLoose: $showImageLoose, showImageWin: $showImageWin)
-                        // Vue conditionnelle pour afficher l'image "man10"
+                   
                     
                         Spacer()
                     }
@@ -73,15 +73,27 @@ struct Main: View {
                     secondaryButton: .cancel(Text("Non"))
                 )
             } else {
-                // Par défaut, retourner une alerte vide
+      
                 return Alert(title: Text(""))
             }
         }
-        .onChange(of: showAlert) { oldValue, newValue in
+        .onChange(of: showAlert ) { oldValue, newValue in
                  if newValue {
                      showImageLoose = true
-                     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+               
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                          showImageLoose = false
+                     
+                     }
+            }
+        }
+        .onChange(of: win ) { oldValue, newValue in
+                 if newValue {
+                     showImageWin = true
+               
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                         showImageWin = false
+                     
                      }
             }
         }

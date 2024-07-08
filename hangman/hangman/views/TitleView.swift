@@ -10,7 +10,7 @@ import SwiftUI
 struct TitleView: View {
     var body: some View {
         VStack {
-            Text("Trouver le mot mystere selectionne dans la liste de gauche").padding().foregroundStyle(.colorText)
+            Text("Trouver le mot mystère sélectionné dans la liste de gauche.").padding().foregroundStyle(.colorText)
         }
     }
 }
