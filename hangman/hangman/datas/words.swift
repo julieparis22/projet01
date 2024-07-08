@@ -8,42 +8,17 @@
 import Foundation
 let  words  :  [String] = [
  
-    "TIGRE",
-    "LION",
+    "CRABE",
+    "AIGLE",
     "OURS",
-    "GORILLE",
-    "CROCODILE",
-    "SERPENT",
-    "GIRAFE",
+    "CHIEN",
+    "TIGRE",
+    "LAPIN",
     "KOALA",
     "BISON",
-    "HIBOU",
-    "AIGLE",
-    "DAUPHIN"
+    "CARPE",
+    "FLEUR",
+    "POMME",
+    "SABLE"
+
 ]
-
-//let=  minusculeWords.map { $0.uppercased() }
-
-
-
-
-/*
-        ,
- "Chien",
- "Plage",
- "Route",
- "Fleur",
- "Livre",
- "Arbre",
- "Glace",
- "Cours",
- "Ville",
- "Musee",
- "Balle",
- "Balai",
- "Piano",
- "Jouer",
- "Plume"
- 
- 
- **/

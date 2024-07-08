@@ -57,7 +57,7 @@ struct Main: View {
             if showAlert {
                 return Alert(
                     title: Text("Jeu Terminé"),
-                    message: Text("Vous avez perdu. Voulez-vous recommencer ?"),
+                    message: Text("Vous avez perdu. Le mot etait : - \(game.hangmanWord.word) - Voulez-vous recommencer ?"),
                     primaryButton: .default(Text("Oui bien sur")) {
                         game.refresh()
                     },

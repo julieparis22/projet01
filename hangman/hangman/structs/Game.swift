@@ -34,6 +34,8 @@ struct Game : Identifiable{
         self.guess = 0
         self.inputCharacter = InputCharacter()
         self.guessArray = Array(repeating: true, count: HangmanWord().wordInArray.count)
+        inputCharacter.resetLetter()
+        letter = ""
         }
     
  

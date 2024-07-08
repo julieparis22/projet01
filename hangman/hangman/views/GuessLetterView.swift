@@ -53,6 +53,9 @@ struct GuessLetterView: View {
                 
                 game.letter = enteredLetter
                 game.inputCharacter.resetLetter()
+                enteredLetter = ""
+                
+                
                 
             
                 
