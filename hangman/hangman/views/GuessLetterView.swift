@@ -17,6 +17,8 @@ struct GuessLetterView: View {
     @Binding var showAlert : Bool
     @State var indices: [Int] = []
     @Binding var win : Bool
+    @Binding var showImageLoose : Bool
+    @Binding var showImageWin : Bool
 
 
     var body: some View {
@@ -68,7 +70,12 @@ struct GuessLetterView: View {
             }
             
             Text("il vous reste : \(game.life - game.guess) vies").multilineTextAlignment(.center)
-            Image("man\(game.life - game.guess)").resizable().scaledToFit().padding()
+          
+            if showImageLoose {
+                Image("man0").resizable().scaledToFit().padding()
+            } else {
+                Image("man\(game.life - game.guess)").resizable().scaledToFit().padding()
+            }
             
             
             
@@ -78,7 +85,7 @@ struct GuessLetterView: View {
 
 #Preview {
     //
-    GuessLetterView(game: .constant(Game()), showAlert: .constant(false), win: .constant(false))
+    GuessLetterView(game: .constant(Game()), showAlert: .constant(false), win: .constant(false), showImageLoose: .constant(false), showImageWin: .constant(false))
 }
 
 

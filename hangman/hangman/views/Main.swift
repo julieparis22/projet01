@@ -15,7 +15,8 @@ struct Main: View {
     
     @State var win: Bool = false
     @State private var showWinAlert = false
-    @State var showImageAlert = false
+    @State var showImageLoose = false
+    @State var showImageWin = false
 
     var body: some View {
         ZStack {
@@ -24,10 +25,11 @@ struct Main: View {
                 NewSpacerView()
                 TitleView()
                 Spacer()
-                HStack{
+                HStack {
                     VStack {
-                        GuessLetterView(game: $game, showAlert: $showAlert, win: $win)
-                 
+                        GuessLetterView(game: $game, showAlert: $showAlert, win: $win, showImageLoose: $showImageLoose, showImageWin: $showImageWin)
+                        // Vue conditionnelle pour afficher l'image "man10"
+                    
                         Spacer()
                     }
                     
@@ -41,55 +43,51 @@ struct Main: View {
                 NewSpacerView()
             }
             
-            if showImageAlert {
-                            Image("man10")
-                             .resizable()
-                             .scaledToFit()
-                             .foregroundColor(.red)
-                             .transition(.scale)
-                             .zIndex(1) // S'assurer que l'image est au-dessus des autres vues
-                     }
-       
+        
         }
         .alert(isPresented: Binding<Bool>(
-                 get: {
-                     showAlert || win
-                 },
-                 set: { _ in
-                     showAlert = false
-                     win = false
-                 }
-             )) {
-                 if showAlert {
-                     return Alert(
-                         title: Text("Jeu Terminé"),
-                         message: Text("Vous avez perdu. Voulez-vous recommencer ?"),
-                         primaryButton: .default(Text("Oui bien sur")) {
-                             game.refresh()
-                         },
-                         secondaryButton: .cancel(Text("Non"))
-                     )
-                 } else if win {
-                     return Alert(
-                         title: Text("Vous avez gagné !"),
-                         message: Text("Félicitations ! Voulez-vous jouer encore ?"),
-                         primaryButton: .default(Text("Oui")) {
-                             game.refresh()
-                         },
-                         secondaryButton: .cancel(Text("Non"))
-                     )
-                 } else {
-                     // Par défaut, retourner une alerte vide
-                     return Alert(title: Text(""))
-                 }
-             }
-        .onChange(of: showAlert) { newValue in
-            if newValue {
-                showImageAlert = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    showImageAlert = false
-                }
+            get: {
+                showAlert || win
+            },
+            set: { _ in
+                showAlert = false
+                win = false
+            }
+        )) {
+            if showAlert {
+                return Alert(
+                    title: Text("Jeu Terminé"),
+                    message: Text("Vous avez perdu. Voulez-vous recommencer ?"),
+                    primaryButton: .default(Text("Oui bien sur")) {
+                        game.refresh()
+                    },
+                    secondaryButton: .cancel(Text("Non"))
+                )
+            } else if win {
+                return Alert(
+                    title: Text("Vous avez gagné !"),
+                    message: Text("Félicitations ! Voulez-vous jouer encore ?"),
+                    primaryButton: .default(Text("Oui")) {
+                        game.refresh()
+                    },
+                    secondaryButton: .cancel(Text("Non"))
+                )
+            } else {
+                // Par défaut, retourner une alerte vide
+                return Alert(title: Text(""))
+            }
+        }
+        .onChange(of: showAlert) { oldValue, newValue in
+                 if newValue {
+                     showImageLoose = true
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                         showImageLoose = false
+                     }
             }
         }
     }
+}
+
+#Preview {
+    Main()
 }
