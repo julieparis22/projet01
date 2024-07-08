@@ -18,6 +18,9 @@
 		CE20BA8C2C39CA7600B63101 /* NewWordGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20BA8B2C39CA7600B63101 /* NewWordGameView.swift */; };
 		CE20BA8E2C39CABB00B63101 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20BA8D2C39CABB00B63101 /* Main.swift */; };
 		CE58F39B2C39EE5F00DB02B5 /* GuessLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58F39A2C39EE5F00DB02B5 /* GuessLetterView.swift */; };
+		CEB108E12C3BF06900645D9F /* NewSpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB108E02C3BF06900645D9F /* NewSpacerView.swift */; };
+		CEB108E32C3BF2ED00645D9F /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB108E22C3BF2ED00645D9F /* TitleView.swift */; };
+		CEB108E52C3BF50C00645D9F /* nameImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB108E42C3BF50C00645D9F /* nameImages.swift */; };
 		CEF116172C3AEC7C0021A28B /* AllWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF116162C3AEC7C0021A28B /* AllWordsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,9 @@
 		CE20BA8B2C39CA7600B63101 /* NewWordGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordGameView.swift; sourceTree = "<group>"; };
 		CE20BA8D2C39CABB00B63101 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		CE58F39A2C39EE5F00DB02B5 /* GuessLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessLetterView.swift; sourceTree = "<group>"; };
+		CEB108E02C3BF06900645D9F /* NewSpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpacerView.swift; sourceTree = "<group>"; };
+		CEB108E22C3BF2ED00645D9F /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		CEB108E42C3BF50C00645D9F /* nameImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nameImages.swift; sourceTree = "<group>"; };
 		CEF116162C3AEC7C0021A28B /* AllWordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWordsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,11 +105,12 @@
 		CE1474952C39656400833329 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				CE1474A12C39663200833329 /* testView */,
 				CE58F39A2C39EE5F00DB02B5 /* GuessLetterView.swift */,
 				CEF116162C3AEC7C0021A28B /* AllWordsView.swift */,
 				CE20BA8B2C39CA7600B63101 /* NewWordGameView.swift */,
 				CE20BA8D2C39CABB00B63101 /* Main.swift */,
+				CEB108E02C3BF06900645D9F /* NewSpacerView.swift */,
+				CEB108E22C3BF2ED00645D9F /* TitleView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -112,15 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				CE14749B2C3965C800833329 /* words.swift */,
+				CEB108E42C3BF50C00645D9F /* nameImages.swift */,
 			);
 			path = datas;
-			sourceTree = "<group>";
-		};
-		CE1474A12C39663200833329 /* testView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = testView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,11 +199,14 @@
 				CEF116172C3AEC7C0021A28B /* AllWordsView.swift in Sources */,
 				CE20BA8C2C39CA7600B63101 /* NewWordGameView.swift in Sources */,
 				CE1474892C3961FC00833329 /* ContentView.swift in Sources */,
+				CEB108E12C3BF06900645D9F /* NewSpacerView.swift in Sources */,
 				CE1474A02C39661100833329 /* Game.swift in Sources */,
 				CE14749E2C3965EB00833329 /* InputCharacter.swift in Sources */,
 				CE14749C2C3965C800833329 /* words.swift in Sources */,
 				CE14749A2C3965A200833329 /* HangmanWord.swift in Sources */,
 				CE1474872C3961FC00833329 /* hangmanApp.swift in Sources */,
+				CEB108E32C3BF2ED00645D9F /* TitleView.swift in Sources */,
+				CEB108E52C3BF50C00645D9F /* nameImages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

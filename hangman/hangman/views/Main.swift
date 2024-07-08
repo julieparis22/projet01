@@ -18,13 +18,38 @@ struct Main: View {
     @State var showImageAlert = false
 
     var body: some View {
-        VStack {
+        ZStack {
+            Color.colorScreen.ignoresSafeArea(.all)
+            VStack {
+                NewSpacerView()
+                TitleView()
+                Spacer()
+                HStack{
+                    VStack {
+                        GuessLetterView(game: $game, showAlert: $showAlert, win: $win)
+                 
+                        Spacer()
+                    }
+                    
+                    VStack {
+                        Spacer()
+                        AllWordsView()
+                    }
+                }.padding()
+                
+                NewWordGameView(game: $game)
+                NewSpacerView()
+            }
             
-            AllWordsView()
-           
-            GuessLetterView(game: $game, showAlert: $showAlert, win: $win)
-            NewWordGameView(game: $game)
-
+            if showImageAlert {
+                            Image("man10")
+                             .resizable()
+                             .scaledToFit()
+                             .foregroundColor(.red)
+                             .transition(.scale)
+                             .zIndex(1) // S'assurer que l'image est au-dessus des autres vues
+                     }
+       
         }
         .alert(isPresented: Binding<Bool>(
                  get: {
@@ -58,25 +83,13 @@ struct Main: View {
                      return Alert(title: Text(""))
                  }
              }
+        .onChange(of: showAlert) { newValue in
+            if newValue {
+                showImageAlert = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    showImageAlert = false
+                }
+            }
+        }
     }
 }
-
-
-
-#Preview {
-    Main()
-}
-/*
-
- **/
-/**      //      NewWordGameView(game: $game)
- 
- Button("Simuler la perte du jeu") {
-     showAlert = true
- }
- .padding()
- 
- Button("Simuler la victoire") {
-     win = true
- }
- .padding()*/

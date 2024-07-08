@@ -67,7 +67,9 @@ struct GuessLetterView: View {
                 }
             }
             
-            Text("il vous reste : \(game.life - game.guess) vies")
+            Text("il vous reste : \(game.life - game.guess) vies").multilineTextAlignment(.center)
+            Image("man\(game.life - game.guess)").resizable().scaledToFit().padding()
+            
             
             
         }
@@ -79,3 +81,5 @@ struct GuessLetterView: View {
     GuessLetterView(game: .constant(Game()), showAlert: .constant(false), win: .constant(false))
 }
 
+
+/* lien image <a href="https://www.flaticon.com/fr/icones-gratuites/jeu-du-pendu" title="jeu du pendu icônes">Jeu du pendu icônes créées par Icongeek26 - Flaticon</a>**/

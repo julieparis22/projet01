@@ -13,7 +13,7 @@ struct AllWordsView: View {
         ScrollView {
             VStack() {
                 ForEach(words, id: \.self) { word in
-                        Text(word)
+                    Text(word).foregroundStyle(.colorText)
                     }
                 }
         }

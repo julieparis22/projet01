@@ -32,7 +32,7 @@ let words =  minusculeWords.map { $0.uppercased() }
 
 
 
-let testArray = ["a", "b", "c", "b"]
+
 /*
  
 

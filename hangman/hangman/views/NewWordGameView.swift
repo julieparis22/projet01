@@ -19,7 +19,7 @@ struct NewWordGameView: View {
         
         Button("Nouvelle partie") {
             game.refresh()
-        }
+        }.foregroundStyle(.colorButton).font(.largeTitle)
     }
 }
 
