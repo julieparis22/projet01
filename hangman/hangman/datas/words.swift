@@ -6,36 +6,44 @@
 //
 
 import Foundation
-let minusculeWords :  [String] = [
+let  words  :  [String] = [
  
-    "Table",
-    "Chien",
-    "Plage",
-    "Route",
-    "Fleur",
-    "Livre",
-    "Arbre",
-    "Glace",
-    "Cours",
-    "Ville",
-    "Musee",
-    "Balle",
-    "Balai",
-    "Piano",
-    "Jouer",
-    "Plume"
-
-   
+    "TIGRE",
+    "LION",
+    "OURS",
+    "GORILLE",
+    "CROCODILE",
+    "SERPENT",
+    "GIRAFE",
+    "KOALA",
+    "BISON",
+    "HIBOU",
+    "AIGLE",
+    "DAUPHIN"
 ]
 
-let words =  minusculeWords.map { $0.uppercased() }
+//let=  minusculeWords.map { $0.uppercased() }
 
 
 
 
 /*
- 
-
+        ,
+ "Chien",
+ "Plage",
+ "Route",
+ "Fleur",
+ "Livre",
+ "Arbre",
+ "Glace",
+ "Cours",
+ "Ville",
+ "Musee",
+ "Balle",
+ "Balai",
+ "Piano",
+ "Jouer",
+ "Plume"
  
  
  **/
