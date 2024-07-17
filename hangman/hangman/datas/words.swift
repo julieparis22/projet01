@@ -8,17 +8,19 @@
 import Foundation
 let  words  :  [String] = [
  
-    "CRABE",
-    "AIGLE",
-    "OURS",
-    "CHIEN",
-    "TIGRE",
-    "LAPIN",
-    "KOALA",
-    "BISON",
-    "CARPE",
-    "FLEUR",
-    "POMME",
-    "SABLE"
+    
+       "CRABE",
+       "AIGLE",
+       "AVION",
+       "CHIEN",
+       "TIGRE",
+       "LAPIN",
+       "KOALA",
+       "BISON",
+       "CARPE",
+       "FLEUR",
+       "POMME",
+       "SABLE",
+       "CARPE",
 
 ]

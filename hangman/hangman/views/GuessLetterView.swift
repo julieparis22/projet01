@@ -45,7 +45,7 @@ struct GuessLetterView: View {
                 
             Text("Etes vous sur de votre choix ?")
             
-            Button("Oui") {
+            Button("Je confirme") {
                 
                 if enteredLetter.isEmpty {
                                   return // Ne rien faire si aucune lettre n'est saisie
@@ -80,7 +80,7 @@ struct GuessLetterView: View {
            
                            
                  
-            }.foregroundStyle(.colorButton).font(.largeTitle)
+            }.foregroundStyle(.colorButton).font(.title)
             .padding()
             
            
